@@ -3,7 +3,7 @@
 ShowFlow - ISQA 3900
 
 ## Description
-Website is about finding movies and/or shows that you would like to watch. You are able to make a list and email the list.
+Search and perform deep filter to find the show or movie you are in the mood in. User is able to make a list and email the list. Create, view, edit, delete shows/movies. Also can create, view, update, and delete actors, genre, and streaming.
 
 ## Build Status
 The first version - Contains the skeleton of the project files
