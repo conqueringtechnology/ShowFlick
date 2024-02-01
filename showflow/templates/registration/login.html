@@ -1,0 +1,24 @@
+{% extends "showflow/base.html" %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/registration.css" %}">{% endblock styles %}
+{% block title %}<title>Show Flow - Log In</title>{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="registration-body">
+    <!--Login-->
+    <img class="mb-4" src="{% static "images/showflowlogo.png" %}" alt="ShowFlow Logo" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <form action="" method="post">
+        {{  form|crispy }}
+        {%  csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <br>
+        <div class="text-center">
+            <button class="login-btn btn btn-primary" type="submit">Log In</button>
+        </div>
+    </form>
+    <br>
+    <p>Forgot your password? <a href="{% url 'password_reset' %}">Change Password</a></p>
+    <p>Don't have an account? <a href="{% url 'showflow:register' %}">Signup Here</a></p>
+</div>
+{% endblock content %}

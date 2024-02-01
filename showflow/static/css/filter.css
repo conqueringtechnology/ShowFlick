@@ -1,0 +1,43 @@
+.backbutton {
+   background-color: rgba(82, 131, 255,0.7);
+   margin-top: 0.3125em;
+}
+
+#div_id_title__icontains > label {
+   text-transform: capitalize;
+}
+
+form div {
+   margin: 0.5em;
+}
+
+.searchform label, #yessend {
+   color: #5283ff;
+}
+
+table th, table td {
+   padding: 0.3125em;
+}
+
+table tr:first-child {
+   background-color: #5283ff;
+}
+
+table tr:nth-child(even) {
+   background-color: rgba(82, 131, 255,0.7);
+}
+
+.filterp {
+   padding: 0.3125em;
+}
+
+#yessend {
+   border: 0.15625em #5283ff solid;
+}
+
+.header-row {
+   background-color: #0056b3 !important; 
+   color: white; 
+}
+
+

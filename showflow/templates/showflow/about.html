@@ -1,0 +1,19 @@
+{% extends 'showflow/base.html'%}
+{% load static %}
+{% block title %}<title>About</title>{% endblock title %}
+{% block content %}
+    <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh">
+        {# Image #}
+        <div class="text-center">
+            <h1><img class="mb-4" src="{% static "images/showflowlogo.png" %}" alt="ShowFlow Logo" width="72" height="72"> About ShowFlow</h1>
+        </div>
+
+        {# Main Section #}
+        <div class="d-flex flex-column align-items-center">
+            <p class="w-50">
+                ShowFlow was developed by four of the brightest web application developers by ShowFlow team who are student's of the University of Nebraska at Omaha. ShowFlow is your one-stop location to find yours shows and movies.
+            </p>
+            <a href="/" class="btn btn-outline-primary" role="button">Home</a>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,5 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/miguelro/showflick.conqueringtechnology"
+PassengerBaseURI "/"
+PassengerPython "/home/miguelro/virtualenv/showflick.conqueringtechnology/3.11/bin/python"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END

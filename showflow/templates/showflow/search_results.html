@@ -1,0 +1,47 @@
+{% extends 'showflow/base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/filter.css" %}">{% endblock styles %}
+{% block title %}<title>Search Results</title>{% endblock title %}
+{% block content %}
+    {# Movie and show search bar results #}
+    <div class="d-flex flex-column align-items-center text-center">
+        <h1 class="my-2"><img class="mb-4" src="{% static "images/showflowlogo.png" %}" alt="ShowFlow Logo" width="72" height="72"> Search Results</h1>
+
+        <h3 class="mb-2">Search results for {{ searched }}</h3>
+        {% if searched %}
+            <div id="userlist" class="d-flex flex-wrap justify-content-around align-items-center mb-5 table-responsive">
+                <table class="table table-bordered table-striped text-center" border='1'>
+                    <tr class="header-row">
+                        <th>Title</th>
+                        <th>Actor</th>
+                        <th>Genre</th>
+                        <th>Streaming</th>
+                        <th>Release Year</th>
+                        <th>Movie/Show Length</th>
+                        <th>Movie/Show Rating</th>
+                        <th>Movie/Show Stars</th>
+                        <th>Watch Type</th>
+                        <th>Details</th>
+                    </tr>
+                    {% for watch in query %}
+                    <tr class="text-center">
+                        <td>{{ watch.title }}</td>
+                        <td>{{ watch.display_actor }}</td>
+                        <td>{{ watch.display_genre }}</td>
+                        <td>{{ watch.display_streaming }}</td>
+                        <td>{{ watch.release_year }}</td>
+                        <td>{{ watch.length }}</td>
+                        <td>{{ watch.rating }}</td>
+                        <td>{{ watch.stars }}</td>
+                        <td>{{ watch.watch_type }}</td>
+                        <td><a href="{{ watch.url }}">Details</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% else %}
+            <h1 class="mt-4">No Results to Show</h1>
+        {% endif %}
+    </div>
+{% endblock content %}

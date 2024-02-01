@@ -1,0 +1,32 @@
+{% extends 'showflow/base.html' %}
+{% load static %}
+{% block script %}{% endblock script %}
+{% block title %}<title>ShowFlow - Home</title>{% endblock title %}
+{% block content %}
+    <div class="container-fluid d-flex flex-column align-items-center">
+        {# User Message #}
+        <div class="my-2 alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Even ore new content Added!</strong> As of December 14, 2022
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+
+        {# Home Header #}
+        <div class ="text-center">
+            <h1 class="my-2"><img class="mb-4" src="{% static "images/showflowlogo.png" %}" alt="ShowFlow Logo" width="72" height="72"> Home ShowFlow</h1>
+
+            <img src="{% static "images/theater.jpg" %}" class="rounded" alt="theater">
+        </div>
+        
+        
+        {# Home Header #}
+        <div class="my-2 text-center">
+            <p class="text-center">To Get Started Finding Movies & Shows Added by ShowFlow users - Click the Link Below.</p>
+
+            <a href="/showsmovie_list/" class="btn btn-outline-primary" role="button" >Shows & Movies</a>
+        </div>
+
+</div>
+{% endblock content %}

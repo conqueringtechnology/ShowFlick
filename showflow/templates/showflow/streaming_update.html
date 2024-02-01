@@ -1,0 +1,23 @@
+{% extends 'showflow/base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block styles %}{% endblock styles %}
+{% block title %}<title>Streaming Update</title>{% endblock title %}
+{% block content %}
+    {% include 'includes/messages.html' %}
+    <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh">
+        {# Image #}
+        <div class="text-center mt-4">
+            <h1><img class="mb-4" src="{% static "images/showflowlogo.png" %}" alt="ShowFlow Logo" width="72" height="72"> Streaming Update</h1>
+        </div>
+        <div class="mb-5">
+            <form method="post" enctype="multipart/form-data" class="form-inline">
+                {% csrf_token %}
+                {{ streaming_form|crispy }}
+                <button type="submit" class="btn btn-primary mt-2 me-2">Update Streaming</button>
+                <a href="{% url 'showflow:ags_list' %}" class="btn btn-secondary mt-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+    <div class="mb-5">
+        <h2>Create Genre</h2>
+        <form method="post" enctype="multipart/form-data" action="{% url 'showflow:genre_create' %}"
+            class="form-inline">
+            {% csrf_token %}
+            {{ genre_form|crispy }}
+            <button type="submit" class="btn btn-primary ms-2 mt-2">Add Genre</button>
+        </form>
+    </div>

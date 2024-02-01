@@ -1,0 +1,14 @@
+{% extends 'showflow/base.html' %}
+{% load static %}
+{% block title %}<title>Delete Streaming</title>{% endblock title %}
+{% block content %}
+    <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+        <h1 class="mb-4">Are you sure you want to delete "{{ streaming.name }}"?</h1>
+        <form method="post" class="d-flex justify-content-center">
+            {% csrf_token %}
+            <input type="hidden" name="confirm_delete" value="True">
+            <button type="submit" class="btn btn-danger me-3">Delete</button>
+            <a href="{% url 'showflow:ags_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock content %}

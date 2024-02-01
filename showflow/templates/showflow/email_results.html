@@ -1,0 +1,63 @@
+{% extends 'showflow/base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/filter.css" %}">
+{% endblock styles %}
+{% block title %}<title>Filter Results</title>{% endblock title %}
+{% block content %}
+    <div class="container-fluid">
+        {# Back to search link #}
+        <div class="d-flex ml-2 my-2">
+            <a href="{% url 'showflow:showsmovie_list' %}"><button class="backbutton">Back To Search</button></a>
+        </div>
+
+        {# Messages #}
+        {% include 'includes/messages.html' %}
+
+        {# Movie and show search and filter results #}
+        <div id="userlist" class="d-flex flex-wrap justify-content-around align-items-center mb-5">
+            <h1 style="text-align:center"><img class="mb-4" src="{% static "images/showflowlogo.png" %}" alt="ShowFlow Logo" width="72" height="72"> Search Results</h1>
+            {% if watch_filter %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <tr class="header-row">
+                            <th>Title</th>
+                            <th>Actor</th>
+                            <th>Genre</th>
+                            <th>Streaming</th>
+                            <th>Release Year</th>
+                            <th>Length</th>
+                            <th>Rating</th>
+                            <th>Stars</th>
+                            <th>Watch Type</th>
+                            <th>Description</th>
+                            <th>Details</th>
+                            <th>Edit/Del</th>
+                        </tr>
+                        {% for watch in watch_filter.qs %}
+                            <tr class="text-center">
+                                <td>{{ watch.title }}</td>
+                                <td>{{ watch.display_actor }}</td>
+                                <td>{{ watch.display_genre }}</td>
+                                <td>{{ watch.display_streaming }}</td>
+                                <td>{{ watch.release_year }}</td>
+                                <td>{{ watch.length }}</td>
+                                <td>{{ watch.rating }}</td>
+                                <td>{{ watch.stars }}</td>
+                                <td>{{ watch.watch_type }}</td>
+                                <td><a href="{% url 'showflow:showsmovie_detail' pk=watch.pk %}" class="btn btn-primary"><i class="fas fa-info"></i></a></td>
+                                <td><a href="{{ watch.url }}" target="_blank" class="btn btn-primary"><i class="fa fa-info-circle"></i></a></td>
+                                <td class="d-flex">
+                                    <a href="{% url 'showflow:showsmovie_edit' pk=watch.pk %}" class="me-2 btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="{% url 'showflow:showsmovie_delete' pk=watch.pk %}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
+
